@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.wander.tt.test.Main2Activity;
 import com.wander.tt.test.PermissionActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                startActivity(new Intent(MainActivity.this, PermissionActivity.class));
+                                startActivity(new Intent(MainActivity.this, Main2Activity.class));
                             }
                         }).show();
             }
