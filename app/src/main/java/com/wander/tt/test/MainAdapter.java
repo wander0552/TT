@@ -78,7 +78,11 @@ public class MainAdapter extends BaseAdapter {
     }
 
     public void setCurrentPosition(double currentPosition) {
-        this.currentPosition = currentPosition;
+        if (currentPosition == this.currentPosition) {
+            this.currentPosition = -1;
+        } else {
+            this.currentPosition = currentPosition;
+        }
     }
 
     class ViewHolder {
