@@ -24,7 +24,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".test.PermissionActivity" />
-        <activity android:name=".test.Main2Activity"></activity>
     </application>
 
 </manifest>
