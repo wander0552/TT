@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tv;
     private ImageView imageView;
-    private LinearLayout layout;
+    private RelativeLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        layout = (LinearLayout) findViewById(R.id.anim_layout);
+        layout = (RelativeLayout) findViewById(R.id.content_main);
         LayoutTransition layoutTransition = new LayoutTransition();
 
 
