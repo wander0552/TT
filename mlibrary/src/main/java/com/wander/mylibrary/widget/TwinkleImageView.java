@@ -56,9 +56,9 @@ public class TwinkleImageView extends ImageView {
             mViewWidth = getMeasuredWidth();
             mHeight = getMeasuredHeight();
             if (mViewWidth > 0) {
-                mLinearGradient = new LinearGradient(-mViewWidth, 0, 0, 0,
+                mLinearGradient = new LinearGradient(-mViewWidth, 0, 0, mHeight,
                         new int[]{0x00ffffff, 0xffffffff, 0x00ffffff},
-                        new float[]{0, 0.5f, 1}, Shader.TileMode.CLAMP);
+                        new float[]{0, 0.26f, 0.52f}, Shader.TileMode.CLAMP);
                 mPaint.setShader(mLinearGradient);
                 mMatrix = new Matrix();
                 mRectF.set(getLeft(),getTop(),getRight(),getBottom());
@@ -84,7 +84,7 @@ public class TwinkleImageView extends ImageView {
             canvas.drawRect(mRectF,mPaint);
 
             // 设置循环并指定时间
-            postInvalidateDelayed(50);
+            postInvalidateDelayed(200);
         }
     }
 }
