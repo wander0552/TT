@@ -21,14 +21,16 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.wander.tt.activity.CDRotationActivity;
+import com.wander.tt.activity.ScrollingActivity;
 import com.wander.tt.test.PermissionActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
+//    static {
+//        System.loadLibrary("native-lib");
+//    }
 
     private TextView tv;
     private ImageView imageView;
@@ -57,43 +59,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Example of a call to a native method
-        tv = (TextView) findViewById(R.id.sample_text);
-        imageView = (ImageView) findViewById(R.id.image);
-        tv.setText(stringFromJNI());
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                imageView.setVisibility(View.VISIBLE);
-            }
-        });
-        final TextView textView  = new TextView(this);
-        textView.setText(stringFromJNI());
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                layout.addView(textView);
-                tv.setVisibility(View.VISIBLE);
-            }
-        });
-
-        layout = (RelativeLayout) findViewById(R.id.content_main);
-        LayoutTransition layoutTransition = new LayoutTransition();
-
-
-        ObjectAnimator animator = new ObjectAnimator();
-        animator = animator.ofFloat(null,"alpha",0f,1.0f,1f).setDuration(5000);
-//        animator.ofFloat(null, "rotationY", 0f, 360f,0f);
-
-        animator.setDuration(5000);
-        layoutTransition.setAnimator(LayoutTransition.APPEARING,animator);
-
-        ObjectAnimator animator2 = new ObjectAnimator();
-        animator2 = animator2.ofFloat(null,"alpha",1.0f,0f,1f).setDuration(5000);
-        animator2.setDuration(5000);
-        layoutTransition.setAnimator(LayoutTransition.DISAPPEARING,animator2);
-
-        layoutTransition.setDuration(5000);
-        layout.setLayoutTransition(layoutTransition);
     }
 
     @Override
@@ -122,5 +87,17 @@ public class MainActivity extends AppCompatActivity {
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
      */
-    public native String stringFromJNI();
+//    public native String stringFromJNI();
+
+    public void mainClick(View view) {
+        switch (view.getId()){
+            case R.id.scroll_test:
+                startActivity(new Intent(this, ScrollingActivity.class));
+                break;
+            case R.id.cd_rotation:
+                startActivity(new Intent(this, CDRotationActivity.class));
+                break;
+        }
+
+    }
 }
