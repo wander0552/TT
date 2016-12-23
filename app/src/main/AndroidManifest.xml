@@ -24,8 +24,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".test.PermissionActivity" />
-        <activity android:name="com.wander.db.DbTestActivity">
-        </activity>
+        <activity android:name="com.wander.db.DbTestActivity" />
+        <activity
+            android:name=".activity.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.CDRotationActivity"></activity>
     </application>
 
 </manifest>
