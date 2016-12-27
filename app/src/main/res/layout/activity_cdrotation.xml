@@ -13,7 +13,7 @@
     <ImageView
         android:layout_width="500dp"
         android:layout_height="500dp"
-        android:src="@mipmap/cd"
+        android:src="@mipmap/cd_full"
         android:id="@+id/cd_image"
         />
 

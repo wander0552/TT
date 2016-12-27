@@ -3,4 +3,33 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+
+    <!-- white -->
+    <color name="kw_common_cl_white">#ffffff</color>
+    <color name="kw_common_cl_white_alpha_6">#0Fffffff</color>
+    <color name="kw_common_cl_white_alpha_5">#0Dffffff</color>
+    <color name="kw_common_cl_white_alpha_8">#14ffffff</color>
+    <color name="kw_common_cl_white_alpha_10">#1affffff</color>
+    <color name="kw_common_cl_white_alpha_15">#21ffffff</color>
+    <color name="kw_common_cl_white_alpha_20">#33ffffff</color>
+    <color name="kw_common_cl_white_alpha_25">#40ffffff</color>
+    <color name="kw_common_cl_white_alpha_30">#4cffffff</color>
+    <color name="kw_common_cl_white_alpha_35">#59ffffff</color>
+    <color name="kw_common_cl_white_alpha_40">#66ffffff</color>
+    <color name="kw_common_cl_white_alpha_45">#72ffffff</color>
+    <color name="kw_common_cl_white_alpha_50">#7fffffff</color>
+    <color name="kw_common_cl_white_alpha_55">#8cffffff</color>
+    <color name="kw_common_cl_white_alpha_60">#99ffffff</color>
+    <color name="kw_common_cl_white_alpha_65">#a5ffffff</color>
+    <color name="kw_common_cl_white_alpha_70">#b2ffffff</color>
+    <color name="kw_common_cl_white_alpha_75">#bfffffff</color>
+    <color name="kw_common_cl_white_alpha_80">#ccffffff</color>
+    <color name="kw_common_cl_white_alpha_85">#d8ffffff</color>
+    <color name="kw_common_cl_white_alpha_90">#e5ffffff</color>
+    <color name="kw_common_cl_white_alpha_95">#f2ffffff</color>
+    <!-- 全透明啥也看不见。。 -->
+    <color name="kw_common_cl_white_alpha_100">#00ffffff</color>
+    <color name="kw_common_cl_transparent">#00000000</color>
 </resources>

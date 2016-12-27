@@ -6,6 +6,7 @@ import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LayoutAnimationController;
@@ -26,6 +27,8 @@ import com.wander.tt.activity.ScrollingActivity;
 import com.wander.tt.test.PermissionActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     // Used to load the 'native-lib' library on application startup.
 //    static {
@@ -51,14 +54,39 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-//                                startActivity(new Intent(MainActivity.this, PermissionActivity.class));
-                                tv.setVisibility(View.GONE);
+                                startActivity(new Intent(MainActivity.this, CDActivity.class));
+//                                tv.setVisibility(View.GONE);
                             }
                         }).show();
             }
         });
 
         // Example of a call to a native method
+    }
+
+
+
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG,"onDestroy");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e(TAG,"onPause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(TAG,"onResume");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e(TAG,"onStop");
     }
 
     @Override
