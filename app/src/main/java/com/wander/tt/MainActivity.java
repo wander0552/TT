@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.wander.tt.activity.BezierActivity;
 import com.wander.tt.activity.CDRotationActivity;
 import com.wander.tt.activity.ScrollingActivity;
 import com.wander.tt.test.PermissionActivity;
@@ -97,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.cd_rotation:
                 startActivity(new Intent(this, CDRotationActivity.class));
                 break;
+            case R.id.custom_scroll:
+
+                break;
+            case R.id.bezier_test:
+                startActivity(new Intent(this, BezierActivity.class));
         }
 
     }

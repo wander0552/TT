@@ -26,5 +26,20 @@
         android:onClick="mainClick"
         android:text="cd选装" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="处理滑动事件"
+        android:id="@+id/custom_scroll"
+        android:onClick="mainClick"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="贝塞尔曲线"
+        android:id="@+id/bezier_test"
+        android:onClick="mainClick"
+        />
 
 </LinearLayout>
