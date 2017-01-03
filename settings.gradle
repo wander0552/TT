@@ -1,1 +1,1 @@
-include ':app', ':mlibrary'
+include ':app', ':mlibrary', ':scaleImage'

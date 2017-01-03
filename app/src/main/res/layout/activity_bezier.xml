@@ -18,4 +18,9 @@
         android:scaleType="fitXY"
         android:src="@mipmap/header"/>
 
+    <com.wander.widget.DynamicHeartView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bezier_heart"/>
+
 </RelativeLayout>

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.wander.base.widgetUtil.BezierEvaluator;
 import com.wander.tt.R;
+import com.wander.widget.DynamicHeartView;
 
 public class BezierActivity extends AppCompatActivity {
 
@@ -26,6 +27,11 @@ public class BezierActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.bezier_image);
         Animator bezierAnimator = getBezierAnimator();
         bezierAnimator.start();
+        DynamicHeartView heartView = (DynamicHeartView) findViewById(R.id.bezier_heart);
+        heartView.startPathAnim(5000);
+
+
+
 
     }
 
@@ -42,6 +48,11 @@ public class BezierActivity extends AppCompatActivity {
                 PointF pointF = (PointF) animation.getAnimatedValue();
                 imageView.setX(pointF.x);
                 imageView.setY(pointF.y);
+                float scaleX = 1-pointF.x/700.0f*0.6f;
+                float scaleY = 1- pointF.y/1000*0.5f;
+                float scale = Math.min(scaleX,scaleY);
+                imageView.setScaleX(scale);
+                imageView.setScaleY(scale);
                 imageView.setAlpha(1-animation.getAnimatedFraction());
             }
         });

@@ -24,6 +24,7 @@ import android.view.MenuItem;
 
 import com.wander.tt.activity.BezierActivity;
 import com.wander.tt.activity.CDRotationActivity;
+import com.wander.tt.activity.LongImageActivity;
 import com.wander.tt.activity.ScrollingActivity;
 import com.wander.tt.test.PermissionActivity;
 
@@ -131,7 +132,16 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.bezier_test:
                 startActivity(new Intent(this, BezierActivity.class));
+                break;
+            case R.id.long_image:
+                jump(LongImageActivity.class);
+                break;
         }
+
+    }
+
+    private void jump(Class<?> cls) {
+        startActivity(new Intent(this,cls));
 
     }
 }
