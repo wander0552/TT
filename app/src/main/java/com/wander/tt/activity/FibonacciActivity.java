@@ -1,17 +1,13 @@
 package com.wander.tt.activity;
 
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
 import android.view.View;
+import android.widget.ProgressBar;
 
-import com.wander.tt.App;
 import com.wander.tt.R;
 import com.wander.tt.adapter.FibonacciAdapter;
 
@@ -20,6 +16,7 @@ public class FibonacciActivity extends AppCompatActivity {
     private LinearLayoutManager mLinearManager;
     private RecyclerView mRecyclerView;
     private FibonacciAdapter mAdapter;
+    private ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +28,7 @@ public class FibonacciActivity extends AppCompatActivity {
 
     private void initView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.fibonacci_list);
+        mProgressBar = (ProgressBar) findViewById(R.id.loading);
         mLinearManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLinearManager);
         mAdapter = new FibonacciAdapter(this);
@@ -44,9 +42,14 @@ public class FibonacciActivity extends AppCompatActivity {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                int lastCompletelyVisibleItemPosition = mLinearManager.findLastCompletelyVisibleItemPosition();
-                if (lastCompletelyVisibleItemPosition == mAdapter.getItemCount() - 1) {
-                    mAdapter.addDate(50);
+                if (mAdapter.isAsc()) {
+                    int lastCompletelyVisibleItemPosition = mLinearManager.findLastCompletelyVisibleItemPosition();
+                    if (lastCompletelyVisibleItemPosition == mAdapter.getItemCount() - 1) {
+                        mAdapter.addDate(50);
+                    }
+                }else {
+                    //// TODO: 2017/1/15 数据反转的情况
+
                 }
             }
         });
@@ -58,44 +61,44 @@ public class FibonacciActivity extends AppCompatActivity {
                 mLinearManager.setReverseLayout(!mLinearManager.getReverseLayout());
             }
         });
+        findViewById(R.id.reverse2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAdapter.reverse();
+            }
+        });
 
+        mAdapter.setLoadingListener(new FibonacciAdapter.LoadListener() {
+            @Override
+            public void onStartLoad() {
+                showLoading();
+
+            }
+
+            @Override
+            public void onLoadSuc() {
+                hideLoading();
+            }
+        });
 
     }
 
-    private static class MyItemDecoration extends RecyclerView.ItemDecoration {
-
-        private Paint paint;
-
-        public MyItemDecoration() {
-            paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            paint.setColor(Color.RED);
+    private void hideLoading() {
+        if (mProgressBar != null) {
+            mProgressBar.setVisibility(View.GONE);
         }
+    }
 
+    private void showLoading() {
+        mProgressBar.setVisibility(View.VISIBLE);
+    }
+
+
+    private static class MyItemDecoration extends RecyclerView.ItemDecoration {
         @Override
         public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
             outRect.set(0, 0, 0, 30);
         }
 
-        @Override
-        public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-//            drawVertical(c, parent);
-        }
-
-        public void drawVertical(Canvas c, RecyclerView parent) {
-            final int left = parent.getPaddingLeft();
-            final int right = parent.getWidth() - parent.getPaddingRight();
-
-            final int childCount = parent.getChildCount();
-            c.save();
-            for (int i = 0; i < childCount; i++) {
-                final View child = parent.getChildAt(i);
-                final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
-                        .getLayoutParams();
-                final int top = child.getBottom() + params.bottomMargin;
-                final int bottom = (int) (top + TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 1, App.getInstance().getApplicationContext().getResources().getDisplayMetrics()));
-                c.drawRect(left, top, right, bottom, paint);
-            }
-            c.restore();
-        }
     }
 }
