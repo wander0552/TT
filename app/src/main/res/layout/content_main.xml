@@ -49,5 +49,25 @@
         android:id="@+id/long_image"
         android:text="长图片显示"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/firebase_upload"
+        android:onClick="mainClick"
+        android:text="上传一个文件"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/firebase_down"
+        android:onClick="mainClick"
+        android:text="下载一个文件"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="斐波那契数列"
+        android:id="@+id/fibonacci_test"
+        android:onClick="mainClick"/>
 
 </LinearLayout>
