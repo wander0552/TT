@@ -28,7 +28,7 @@ public class TabAdapter extends FragmentPagerAdapter {
             mList = new ArrayList<>();
         }
         for (int i = 0; i < 6; i++) {
-            mList.add(new MyTabItem("霞霞" + i));
+            mList.add(new MyTabItem("wander tt" + i));
         }
 
     }
@@ -49,7 +49,7 @@ public class TabAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         MyTabItem item = mList.get(position);
         if (item == null){
-            return "霞";
+            return "wander";
         }
         return item.getTitle();
     }
