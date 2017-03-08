@@ -18,6 +18,7 @@ import com.wander.tt.activity.BezierActivity;
 import com.wander.tt.activity.CDRotationActivity;
 import com.wander.tt.activity.CustomScrollActivity;
 import com.wander.tt.activity.FibonacciActivity;
+import com.wander.tt.activity.KeystoreActivity;
 import com.wander.tt.activity.LongImageActivity;
 import com.wander.tt.activity.ScrollingActivity;
 
@@ -134,6 +135,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.fibonacci_test:
                 startActivity(new Intent(this, FibonacciActivity.class));
+                break;
+            case R.id.keystore:
+                startActivity(new Intent(this, KeystoreActivity.class));
+                break;
         }
 
     }

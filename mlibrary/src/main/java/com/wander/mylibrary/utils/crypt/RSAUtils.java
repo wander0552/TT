@@ -1,4 +1,4 @@
-package com.wander.mylibrary.utils;
+package com.wander.mylibrary.utils.crypt;
 
 import android.util.Base64;
 
@@ -218,7 +218,7 @@ public final class RSAUtils
 	 * @throws InvalidKeySpecException
 	 */
 	public static PublicKey getPublicKey(byte[] keyBytes) throws NoSuchAlgorithmException,
-			InvalidKeySpecException
+            InvalidKeySpecException
 	{
 		X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
 		KeyFactory keyFactory = KeyFactory.getInstance(RSA);
@@ -235,7 +235,7 @@ public final class RSAUtils
 	 * @throws InvalidKeySpecException
 	 */
 	public static PrivateKey getPrivateKey(byte[] keyBytes) throws NoSuchAlgorithmException,
-			InvalidKeySpecException
+            InvalidKeySpecException
 	{
 		PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
 		KeyFactory keyFactory = KeyFactory.getInstance(RSA);
@@ -424,6 +424,7 @@ public final class RSAUtils
 		System.out.println("Modulus=" + rsaPublicKey.getModulus().toString());
 		System.out.println("PublicExponent.length=" + rsaPublicKey.getPublicExponent().bitLength());
 		System.out.println("PublicExponent=" + rsaPublicKey.getPublicExponent().toString());
+		System.out.println("key=" + Base64Coder.encode(rsaPublicKey.getEncoded()));
 	}
 
 	public static void printPrivateKeyInfo(PrivateKey privateKey)
@@ -434,7 +435,9 @@ public final class RSAUtils
 		System.out.println("Modulus=" + rsaPrivateKey.getModulus().toString());
 		System.out.println("PrivateExponent.length=" + rsaPrivateKey.getPrivateExponent().bitLength());
 		System.out.println("PrivatecExponent=" + rsaPrivateKey.getPrivateExponent().toString());
+		System.out.println("key=" + Base64Coder.encode(rsaPrivateKey.getEncoded()));
 
 	}
+
 
 }

@@ -57,8 +57,10 @@
         <activity android:name=".activity.BezierActivity" />
         <activity android:name=".activity.LongImageActivity" />
         <activity android:name=".activity.FibonacciActivity" />
-        <activity android:name=".activity.CustomScrollActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activity.CustomScrollActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.KeystoreActivity"></activity>
     </application>
 
 </manifest>

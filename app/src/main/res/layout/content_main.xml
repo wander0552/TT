@@ -69,5 +69,12 @@
         android:text="斐波那契数列"
         android:id="@+id/fibonacci_test"
         android:onClick="mainClick"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/keystore"
+        android:text="使用keystore加密"
+        android:onClick="mainClick"
+        />
 
 </LinearLayout>
